@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Delhi Home Healthcare Services | Professional Care at Home</title>
+    <meta name="description" content="Professional home healthcare services in Delhi NCR. Nursing care, ICU care, physiotherapy, elderly care, and patient care services at your doorstep.">
+    
+    <!-- EmailJS SDK for direct email sending -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <meta name="keywords" content="home healthcare, nursing care delhi, patient care, physiotherapy, elderly care, ICU care at home">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* --- CSS Reset & Base Styles --- */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #0ea5e9;
+            --secondary: #0284c7;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text: #334155;
+            --gray: #64748b;
+            --success: #22c55e;
+            --border: #e2e8f0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        button, input, textarea { font-family: inherit; font-size: inherit; }
+
+        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+        
+        /* --- Utility Classes --- */
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--primary); color: white;
+            padding: 14px 32px; border-radius: 50px;
+            font-weight: 600; font-size: 1rem; border: none;
+            transition: all 0.3s ease; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+        .btn-primary:hover { background: var(--secondary); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4); }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 8px;
+            border: 2px solid var(--dark); color: var(--dark);
+            padding: 12px 28px; border-radius: 50px;
+            font-weight: 600; transition: all 0.3s ease;
+        }
+        .btn-outline:hover { background: var(--dark); color: white; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 800; color: var(--dark); margin-bottom: 15px; }
+        .section-header p { color: var(--gray); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: white;
+            position: fixed; width: 100%; top: 0; left: 0;
+            z-index: 1000; box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        header.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.12); }
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 0; position: relative;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        .logo-icon {
+            width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 24px; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+        .logo-text h1 { font-size: 1.3rem; font-weight: 800; color: var(--dark); line-height: 1.2; }
+        .logo-text p { font-size: 0.7rem; color: var(--gray); font-weight: 500; letter-spacing: 0.5px; }
+        
+        /* --- Navigation Styles --- */
+        .nav-links { display: flex; align-items: center; gap: 5px; }
+        .nav-links a {
+            padding: 10px 18px; border-radius: 8px; font-weight: 500;
+            color: var(--text); transition: all 0.3s ease; font-size: 0.95rem;
+            display: flex; align-items: center; gap: 8px;
+            min-width: 130px; justify-content: center;
+        }
+        .nav-links a i:first-child { font-size: 1rem; color: var(--text); }
+        .nav-links a:hover { background: var(--light); color: var(--primary); }
+        .nav-links a:hover i { color: var(--primary); }
+        .nav-links a.active { background: var(--primary); color: white; }
+        .nav-links a.active i { color: white; }
+        
+        /* Dropdown Menu */
+        .dropdown { position: relative; }
+        .dropdown-toggle {
+            padding: 10px 18px; border-radius: 8px; font-weight: 500;
+            color: var(--text); transition: all 0.3s ease; font-size: 0.95rem;
+            cursor: pointer; display: flex; align-items: center; gap: 8px;
+            background: none; border: none;
+            min-width: 130px; justify-content: center;
+        }
+        .dropdown-toggle i:first-child { font-size: 1rem; }
+        .dropdown-toggle:hover { background: var(--light); color: var(--primary); }
+        .dropdown-toggle:hover i { color: var(--primary); }
+        .dropdown-toggle i.fa-chevron-down { font-size: 0.7rem; transition: transform 0.3s; margin-left: 2px; }
+        .dropdown:hover .dropdown-toggle i.fa-chevron-down { transform: rotate(180deg); }
+        
+        .dropdown-menu {
+            position: absolute; top: 100%; left: 0; min-width: 220px;
+            background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            opacity: 0; visibility: hidden; transform: translateY(10px);
+            transition: all 0.3s ease; z-index: 100; padding: 10px 0;
+            border: 1px solid var(--border);
+        }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-menu a {
+            display: flex; align-items: center; gap: 10px; padding: 12px 20px;
+            color: var(--text); font-size: 0.9rem; border-radius: 0;
+        }
+        .dropdown-menu a:hover { background: var(--light); color: var(--primary); padding-left: 25px; }
+        .dropdown-menu a i { width: 20px; text-align: center; color: var(--primary); }
+        
+        .nav-links a.btn-call {
+            background: var(--success); color: white; margin-left: 10px;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+        .nav-links a.btn-call:hover { background: #16a34a; transform: translateY(-2px); }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none; flex-direction: column; gap: 5px; cursor: pointer;
+            padding: 10px; z-index: 1001;
+        }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--dark); border-radius: 3px; transition: all 0.3s ease; }
+        .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center;
+            padding: 100px 0 60px; position: relative; overflow: hidden;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -100px; right: -100px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(14,165,233,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .hero-content h1 {
+            font-size: 3.2rem; font-weight: 800; color: var(--dark);
+            line-height: 1.2; margin-bottom: 25px;
+        }
+        .hero-content h1 span { color: var(--primary); position: relative; }
+        .hero-content p { font-size: 1.15rem; color: var(--gray); margin-bottom: 35px; line-height: 1.8; }
+        .hero-cta { display: flex; gap: 15px; flex-wrap: wrap; }
+        
+        .hero-image { position: relative; }
+        .hero-image img { border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
+        .hero-badge {
+            position: absolute; bottom: -20px; left: -20px; background: white;
+            padding: 20px 25px; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            display: flex; align-items: center; gap: 15px;
+        }
+        .badge-icon { width: 55px; height: 55px; background: #fef3c7; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #f59e0b; font-size: 24px; }
+        .badge-text h4 { font-size: 1.1rem; font-weight: 700; color: var(--dark); }
+        .badge-text p { font-size: 0.85rem; color: var(--gray); }
+
+        /* --- Services Section --- */
+        .services { padding: 100px 0; background: white; }
+        .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        
+        .service-card {
+            background: var(--light); border-radius: 20px; padding: 35px 25px;
+            text-align: center; transition: all 0.4s ease; position: relative; overflow: hidden;
+            border: 1px solid transparent; cursor: pointer;
+        }
+        .service-card:hover {
+            transform: translateY(-10px); box-shadow: 0 20px 40px rgba(14, 165, 233, 0.1);
+            border-color: rgba(14, 165, 233, 0.2);
+        }
+        .service-icon {
+            width: 75px; height: 75px; border-radius: 20px; margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center; font-size: 30px;
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd); color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover .service-icon { background: var(--primary); color: white; transform: scale(1.1) rotate(5deg); }
+        .service-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+        .service-card p { font-size: 0.9rem; color: var(--gray); margin-bottom: 20px; line-height: 1.6; }
+        .service-link { color: var(--primary); font-weight: 600; display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem; }
+        .service-card:hover .service-link { gap: 10px; }
+
+        /* --- Why Choose Us --- */
+        .why-us { padding: 100px 0; background: linear-gradient(180deg, var(--light) 0%, white 100%); }
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; }
+        
+        .why-card {
+            background: white; border-radius: 20px; padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+        .why-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .why-icon {
+            width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 16px; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 28px; margin-bottom: 25px;
+        }
+        .why-card h3 { font-size: 1.3rem; font-weight: 700; color: var(--dark); margin-bottom: 15px; }
+        .why-card p { color: var(--gray); line-height: 1.7; }
+
+        /* --- About Page --- */
+        .about-page { padding: 100px 0; background: white; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; margin-bottom: 60px; }
+        .about-image img { border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .founder-box { margin-top: 30px; display: flex; gap: 25px; align-items: center; background: linear-gradient(135deg, #f8fafc, #f1f5f9); padding: 30px; border-radius: 20px; border: 1px solid #e2e8f0; }
+        .founder-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 5px solid white; box-shadow: 0 8px 25px rgba(0,0,0,0.15); flex-shrink: 0; cursor: pointer; transition: all 0.3s ease; }
+        .founder-img:hover { transform: scale(1.05); box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+        
+        /* Modal Styles */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: none; justify-content: center; align-items: center; z-index: 9999; backdrop-filter: blur(5px); }
+        .modal-overlay.active { display: flex; }
+        .modal-content { background: white; padding: 30px; border-radius: 24px; text-align: center; max-width: 400px; animation: modalIn 0.3s ease; }
+        @keyframes modalIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .modal-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 6px solid white; box-shadow: 0 15px 40px rgba(0,0,0,0.2); margin-bottom: 20px; }
+        .modal-title { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 5px; }
+        .modal-subtitle { color: var(--primary); font-weight: 600; margin-bottom: 15px; }
+        .modal-desc { color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+        .modal-close { background: var(--primary); color: white; border: none; padding: 12px 30px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+        .modal-close:hover { background: var(--secondary); transform: translateY(-2px); }
+        .founder-info h3 { font-size: 1.3rem; color: var(--dark); margin-bottom: 5px; }
+        .founder-info .title { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+        .founder-info p { color: var(--gray); font-size: 0.95rem; margin-top: 10px; line-height: 1.6; }
+        
+        .about-text h2 { font-size: 2.2rem; font-weight: 800; color: var(--dark); margin-bottom: 20px; }
+        .about-text p { color: var(--gray); margin-bottom: 15px; font-size: 1.05rem; line-height: 1.8; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
+        .stat-box { background: var(--light); padding: 25px 15px; border-radius: 16px; text-align: center; }
+        .stat-box h3 { font-size: 2rem; font-weight: 800; color: var(--primary); margin-bottom: 5px; }
+        .stat-box p { color: var(--gray); font-weight: 500; font-size: 0.9rem; }
+
+        .mission-vision { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .mission-box, .vision-box { background: var(--light); padding: 35px; border-radius: 20px; }
+        .mission-box i, .vision-box i { font-size: 40px; color: var(--primary); margin-bottom: 20px; }
+        .mission-box h3, .vision-box h3 { font-size: 1.4rem; font-weight: 700; color: var(--dark); margin-bottom: 15px; }
+        .mission-box p, .vision-box p { color: var(--gray); line-height: 1.7; }
+        
+        /* --- Contact Page --- */
+        .contact-page { padding: 100px 0; background: var(--light); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .contact-form { background: white; padding: 40px; border-radius: 24px; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .contact-form h3 { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 25px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-weight: 500; color: var(--dark); margin-bottom: 8px; font-size: 0.9rem; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 14px 18px; border: 2px solid var(--border);
+            border-radius: 12px; font-size: 1rem; transition: all 0.3s ease;
+            background: var(--light);
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary); outline: none; background: white;
+        }
+        .submit-btn { width: 100%; padding: 16px; border-radius: 12px; font-size: 1.1rem; margin-top: 10px; }
+        
+        /* Email Input with Domain Select */
+        .email-input-group { display: flex; gap: 8px; align-items: center; }
+        .email-input-group input { flex: 1; }
+        .email-input-group select { width: 140px; padding: 14px 12px; border: 2px solid var(--border); border-radius: 12px; font-size: 1rem; background: var(--light); cursor: pointer; }
+        .email-input-group select:focus { border-color: var(--primary); outline: none; background: white; }
+        .email-at { font-size: 1.1rem; color: var(--gray); font-weight: 600; }
+        
+        /* Success Message */
+        .success-message { display: none; text-align: center; padding: 40px 20px; animation: fadeInUp 0.5s ease; }
+        .success-message.show { display: block; }
+        .success-icon { width: 80px; height: 80px; background: linear-gradient(135deg, #22c55e, #16a34a); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; color: white; font-size: 40px; box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3); }
+        .success-message h3 { font-size: 1.5rem; color: var(--dark); margin-bottom: 10px; }
+        .success-message p { color: var(--gray); margin-bottom: 20px; }
+        .success-message .btn-primary { display: inline-flex; }
+
+        .contact-info h3 { font-size: 1.5rem; font-weight: 700; color: var(--dark); margin-bottom: 30px; }
+        .contact-item { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 25px; }
+        .contact-icon {
+            width: 55px; height: 55px; background: white; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; color: var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); flex-shrink: 0;
+        }
+        .contact-item-text small { color: var(--gray); font-size: 0.85rem; }
+        .contact-item-text a, .contact-item-text p { display: block; font-size: 1.1rem; font-weight: 600; color: var(--dark); margin-top: 4px; }
+        .contact-item-text a:hover { color: var(--primary); }
+        
+        .map-container { margin-top: 30px; border-radius: 16px; overflow: hidden; height: 250px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .map-container iframe { width: 100%; height: 100%; border: 0; }
+
+        /* --- Footer --- */
+        footer { background: var(--dark); color: white; padding-top: 80px; }
+        .footer-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+        .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .footer-brand h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .footer-brand p { color: #94a3b8; line-height: 1.7; margin-bottom: 20px; }
+        .footer-social { display: flex; gap: 12px; }
+        .footer-social a { width: 42px; height: 42px; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .footer-social a:hover { background: var(--primary); transform: translateY(-3px); }
+
+        .footer-col h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 25px; color: white; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: #94a3b8; display: flex; align-items: center; gap: 8px; transition: all 0.3s; cursor: pointer; }
+        .footer-col ul li a:hover { color: white; transform: translateX(5px); }
+        .footer-contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; color: #94a3b8; }
+        .footer-contact-item i { color: var(--primary); }
+        .footer-contact-item a:hover { color: white; }
+        
+        .footer-bottom { text-align: center; padding: 25px 0; color: #64748b; font-size: 0.9rem; }
+
+        /* --- Floating Buttons --- */
+        .floating-buttons { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
+        .call-float, .whatsapp-float {
+            width: 60px; height: 60px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; font-size: 24px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2); transition: all 0.3s; color: white;
+        }
+        .call-float { background: var(--primary); }
+        .whatsapp-float { background: #25d366; }
+        .call-float:hover, .whatsapp-float:hover { transform: scale(1.1); }
+
+        /* --- Page Visibility --- */
+        .page { display: none; }
+        .page.active { display: block; }
+        
+        /* --- Service Detail Page --- */
+        .service-detail-page { 
+            padding: 100px 0 60px; 
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); 
+            min-height: 100vh;
+            animation: fadeInUp 0.5s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .service-detail-header { 
+            position: relative; 
+            margin-bottom: 30px; 
+        }
+        .service-detail-header img { 
+            width: 100%; 
+            height: 400px; 
+            object-fit: cover; 
+            border-radius: 24px; 
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+            transition: transform 0.5s ease;
+        }
+        .service-detail-header img:hover {
+            transform: scale(1.02);
+        }
+        .service-detail-header .back-btn { 
+            position: absolute; 
+            top: 20px; 
+            left: 20px; 
+            background: white; 
+            border-radius: 50px; 
+            padding: 14px 28px; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            cursor: pointer; 
+            font-size: 1rem; 
+            font-weight: 600; 
+            color: var(--dark); 
+            transition: all 0.3s ease; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2); 
+            z-index: 10; 
+            border: 2px solid transparent;
+        }
+        .service-detail-header .back-btn:hover { 
+            background: var(--primary); 
+            color: white; 
+            transform: translateX(-5px); 
+            border-color: var(--primary);
+        }
+        .service-detail-title { 
+            text-align: center; 
+            margin-top: 40px; 
+            padding: 0 20px;
+        }
+        .service-detail-title h1 { 
+            font-size: 2.8rem; 
+            font-weight: 800; 
+            color: var(--dark); 
+            margin-bottom: 15px; 
+            line-height: 1.3;
+        }
+        .service-detail-title p { 
+            font-size: 1.3rem; 
+            color: var(--primary); 
+            font-weight: 500;
+        }
+        .service-detail-content { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+        .service-article { 
+            font-size: 1.15rem; 
+            line-height: 2; 
+            color: var(--text); 
+            margin-bottom: 50px; 
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .service-article p { 
+            margin-bottom: 20px; 
+        }
+        .service-detail-section { 
+            margin-bottom: 50px; 
+        }
+        .service-detail-section h2 { 
+            font-size: 1.6rem; 
+            font-weight: 700; 
+            color: var(--dark); 
+            margin-bottom: 25px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            padding-bottom: 15px; 
+            border-bottom: 3px solid var(--primary);
+        }
+        .service-detail-section h2 i { 
+            color: var(--primary); 
+            font-size: 1.4rem; 
+        }
+        .service-features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 18px; 
+        }
+        .service-feature-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            background: white; 
+            padding: 18px 22px; 
+            border-radius: 16px; 
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .service-feature-item:hover { 
+            background: linear-gradient(135deg, #e0f2fe, #f0f9ff); 
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.15);
+            border-color: var(--primary);
+        }
+        .service-feature-item i { 
+            color: var(--success); 
+            font-size: 1.2rem; 
+        }
+        .service-feature-item span { 
+            font-size: 1.05rem; 
+            color: var(--text); 
+            font-weight: 500; 
+        }
+        .service-benefits-grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+        }
+        .service-benefit-item { 
+            background: linear-gradient(135deg, #e0f2fe, #bae6fd); 
+            color: var(--primary); 
+            padding: 14px 26px; 
+            border-radius: 50px; 
+            font-size: 1rem; 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            transition: all 0.3s ease;
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+        .service-benefit-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.2);
+        }
+        .service-benefit-item i { 
+            font-size: 0.9rem; 
+        }
+        .service-detail-cta { 
+            display: flex; 
+            gap: 25px; 
+            justify-content: center; 
+            margin-top: 60px; 
+            padding: 40px 30px; 
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9); 
+            border-radius: 24px; 
+            flex-wrap: wrap; 
+            border: 1px solid var(--border);
+        }
+        .service-detail-cta .btn-primary,
+        .service-detail-cta .btn-outline {
+            padding: 16px 36px;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .service-detail-header img { height: 350px; }
+            .service-detail-title h1 { font-size: 2.3rem; }
+            .service-features-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            .service-detail-page { padding: 80px 0 40px; }
+            .service-detail-header img { 
+                height: 280px; 
+                border-radius: 0;
+                border-radius: 20px;
+                margin: 0 10px;
+                width: calc(100% - 20px);
+            }
+            .service-detail-header .back-btn { 
+                padding: 12px 20px; 
+                font-size: 0.95rem; 
+                top: 15px;
+                left: 15px;
+            }
+            .service-detail-title { margin-top: 30px; }
+            .service-detail-title h1 { font-size: 1.9rem; line-height: 1.3; }
+            .service-detail-title p { font-size: 1.1rem; }
+            .service-article { 
+                padding: 25px 20px; 
+                font-size: 1.05rem; 
+                border-radius: 16px;
+            }
+            .service-features-grid { grid-template-columns: 1fr; gap: 12px; }
+            .service-feature-item { padding: 15px 18px; border-radius: 12px; }
+            .service-feature-item span { font-size: 1rem; }
+            .service-benefits-grid { gap: 10px; }
+            .service-benefit-item { padding: 12px 20px; font-size: 0.95rem; }
+            .service-detail-cta { 
+                flex-direction: column; 
+                padding: 25px 20px;
+                margin-top: 40px;
+                gap: 15px;
+            }
+            .service-detail-cta .btn-primary, 
+            .service-detail-cta .btn-outline { 
+                width: 100%; 
+                justify-content: center;
+                padding: 14px 24px;
+            }
+            .service-detail-section h2 { font-size: 1.4rem; }
+        }
+        
+        @media (max-width: 480px) {
+            .service-detail-header img { height: 220px; margin: 0; width: 100%; border-radius: 0 0 20px 20px; }
+            .service-detail-header .back-btn { padding: 10px 16px; font-size: 0.9rem; }
+            .service-detail-title h1 { font-size: 1.6rem; }
+            .service-detail-title p { font-size: 1rem; }
+            .service-article { padding: 20px 15px; font-size: 1rem; }
+            .service-feature-item { padding: 12px 15px; }
+            .service-benefit-item { padding: 10px 16px; font-size: 0.9rem; }
+        }
+
+        /* --- Responsive Design (Mobile Friendly) --- */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .hero-image { order: -1; max-width: 500px; margin: 0 auto; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-top { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            /* Navigation */
+            .menu-toggle { display: flex; }
+            .nav-links {
+                position: absolute; top: 100%; left: 0; right: 0;
+                background: white; flex-direction: column; padding: 20px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1); border-radius: 0 0 20px 20px;
+                display: none; gap: 5px;
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a, .dropdown-toggle { width: 100%; text-align: left; padding: 15px 20px; }
+            .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; padding-left: 20px; display: none; }
+            .dropdown.active .dropdown-menu { display: block; }
+            .dropdown-menu a { padding: 10px 20px; }
+            .nav-links a.btn-call { margin-left: 0; margin-top: 10px; text-align: center; }
+
+            /* Typography */
+            .hero-content h1 { font-size: 2.2rem; }
+            .section-header h2 { font-size: 2rem; }
+            .section-header p { font-size: 1rem; }
+            .about-text h2 { font-size: 1.8rem; }
+
+            /* Layouts */
+            .services-grid { grid-template-columns: 1fr; padding: 0 10px; }
+            .why-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .mission-vision { grid-template-columns: 1fr; }
+            .footer-top { grid-template-columns: 1fr; text-align: center; }
+            .footer-social { justify-content: center; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+
+            /* Spacing */
+            .hero { padding: 80px 0 40px; min-height: auto; }
+            .services, .why-us, .about-page, .contact-page { padding: 60px 0; }
+            
+            /* Components */
+            .hero-cta { justify-content: center; }
+            .hero-badge { position: static; margin-top: 20px; justify-content: center; }
+            .founder-box { flex-direction: column; text-align: center; align-items: center; padding: 25px; }
+            .founder-img { width: 100px; height: 100px; }
+            
+            /* Floating Buttons */
+            .floating-buttons { bottom: 20px; right: 20px; }
+            .call-float, .whatsapp-float { width: 55px; height: 55px; font-size: 22px; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 15px; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .btn-primary, .btn-outline { padding: 12px 24px; font-size: 0.9rem; width: 100%; justify-content: center; }
+            .contact-form { padding: 25px; }
+            .stat-box { padding: 20px 10px; }
+            .stat-box h3 { font-size: 1.5rem; }
+            .footer-col { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+    <div class="container">
+        <nav>
+            <div class="logo" onclick="showPage('home')">
+                <div class="logo-icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="logo-text">
+                    <h1>Delhi Home Healthcare</h1>
+                    <p>Professional Care at Home</p>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#" class="active" id="nav-home" onclick="showPage('home')"><i class="fas fa-home"></i> Home</a>
+                <a href="#" id="nav-about" onclick="showPage('about')"><i class="fas fa-info-circle"></i> About Us</a>
+                
+                <!-- Services Dropdown -->
+                <div class="dropdown" id="servicesDropdown">
+                    <button class="dropdown-toggle" onclick="toggleDropdown(event)">
+                        <i class="fas fa-briefcase-medical"></i> Services <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" onclick="openServiceWindow('nursing-care'); return false;"><i class="fas fa-user-nurse"></i> Nursing Care</a>
+                        <a href="#" onclick="openServiceWindow('icu-care'); return false;"><i class="fas fa-heartbeat"></i> ICU Care</a>
+                        <a href="#" onclick="openServiceWindow('patient-care'); return false;"><i class="fas fa-user-injured"></i> Patient Care</a>
+                        <a href="#" onclick="openServiceWindow('japa-maid'); return false;"><i class="fas fa-baby"></i> Japa Maid</a>
+                        <a href="#" onclick="openServiceWindow('physiotherapy'); return false;"><i class="fas fa-walking"></i> Physiotherapy</a>
+                        <a href="#" onclick="openServiceWindow('injection-service'); return false;"><i class="fas fa-syringe"></i> Injection Service</a>
+                        <a href="#" onclick="openServiceWindow('elderly-care'); return false;"><i class="fas fa-brain"></i> Elderly Care</a>
+                        <a href="#" onclick="openServiceWindow('post-surgical-care'); return false;"><i class="fas fa-procedures"></i> Post-Surgical Care</a>
+                        <a href="#" onclick="openServiceWindow('tracheostomy-care'); return false;"><i class="fas fa-lungs"></i> Tracheostomy Care</a>
+                        <a href="#" onclick="openServiceWindow('attendant-services'); return false;"><i class="fas fa-hands-helping"></i> Attendant Services</a>
+                    </div>
+                </div>
+                
+                <a href="#" id="nav-contact" onclick="showPage('contact')"><i class="fas fa-envelope"></i> Contact Us</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page active">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Professional Healthcare <span>At Your Home</span></h1>
+                    <p>We provide expert nursing care, ICU setup at home, physiotherapy, elderly care & patient attendants in Delhi NCR. Quality care with compassion, right at your doorstep.</p>
+                    <div class="hero-cta">
+                        <a href="https://wa.me/918802847949" class="btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Now
+                        </a>
+                        <a href="tel:8802847949" class="btn-outline">
+                            <i class="fas fa-phone-alt"></i> Call Us
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800" alt="Home Healthcare Services Delhi">
+                    <div class="hero-badge">
+                        <div class="badge-icon"><i class="fas fa-award"></i></div>
+                        <div class="badge-text">
+                            <h4>4+ Years</h4>
+                            <p>Trusted Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Healthcare Services</h2>
+                <p>Comprehensive home healthcare solutions tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service Cards -->
+                <div class="service-card" onclick="openServiceWindow('nursing-care')">
+                    <div class="service-icon"><i class="fas fa-user-nurse"></i></div>
+                    <h3>Nursing Care</h3>
+                    <p>Professional nurses for wound care, injections, medication management & post-operative care.</p>
+                    <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <div class="service-card" onclick="openServiceWindow('icu-care')">
+                    <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3>ICU Care at Home</h3>
+                    <p>Complete ICU setup with ventilator, oxygen, cardiac monitoring & 24/7 critical care.</p>
+                    <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <div class="service-card" onclick="openServiceWindow('patient-care')">
+                    <div class="service-icon"><i class="fas fa-user-injured"></i></div>
+                    <h3>Patient Care</h3>
+                    <p>Trained attendants for bedridden patients, personal care & daily living assistance.</p>
+                    <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <div class="service-card" onclick="openServiceWindow('japa-maid')">
+                    <div class="service-icon"><i class="fas fa-baby"></i></div>
+                    <h3>Japa Maid</h3>
+                    <p>Expert post-natal care for mother & newborn. Traditional care with modern approach.</p>
+                    <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <div class="service-card" onclick="openServiceWindow('physiotherapy')">
+                    <div class="service-icon"><i class="fas fa-walking"></i></div>
+                    <h3>Physiotherapy</h3>
+                    <p>Licensed physiotherapists for rehabilitation, pain relief & mobility improvement.</p>
+                    <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <div class="service-card" onclick="openServiceWindow('injection-service')">
+                    <div class="service-icon"><i class="fas fa-syringe"></i></div>
+                    <h3>Injection Service</h3>
+                    <p>Safe injection administration at home by trained nurses. No hospital visit needed.</p>
+                    <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <div class="service-card" onclick="openServiceWindow('elderly-care')">
+                    <div class="service-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Elderly Care</h3>
+                    <p>Compassionate care for seniors. Companionship, medication help & daily support.</p>
+                    <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <div class="service-card" onclick="openServiceWindow('post-surgical-care')">
+                    <div class="service-icon"><i class="fas fa-procedures"></i></div>
+                    <h3>Post-Surgical Care</h3>
+                    <p>Specialized care for faster recovery after surgery. Wound care & rehabilitation.</p>
+                    <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <div class="service-card" onclick="openServiceWindow('attendant-services')">
+                    <div class="service-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Attendant Services</h3>
+                    <p>Trained attendants for 24/7 patient assistance, personal care & daily activities.</p>
+                    <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+                
+                <div class="service-card" onclick="openServiceWindow('tracheostomy-care')">
+                    <div class="service-icon"><i class="fas fa-lungs"></i></div>
+                    <h3>Tracheostomy Care</h3>
+                    <p>Specialized tracheostomy care at home by trained nurses for patients with breathing tubes.</p>
+                    <span class="service-link">Learn More <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Us?</h2>
+                <p>Trusted by thousands of families across Delhi NCR</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-user-md"></i></div>
+                    <h3>Qualified Staff</h3>
+                    <p>All our nurses and caregivers are certified, trained, and background verified for your safety and peace of mind.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-clock"></i></div>
+                    <h3>24/7 Availability</h3>
+                    <p>Healthcare needs don't follow a schedule. We are available round the clock, including weekends and holidays.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-rupee-sign"></i></div>
+                    <h3>Affordable Pricing</h3>
+                    <p>Quality healthcare shouldn't be expensive. We offer transparent pricing with no hidden charges.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-home"></i></div>
+                    <h3>Care at Home</h3>
+                    <p>Recover in the comfort of your home. We bring hospital-quality care to your doorstep.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-ambulance"></i></div>
+                    <h3>Quick Response</h3>
+                    <p>Emergency? We can arrange healthcare staff within 2-4 hours in Delhi NCR.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Compassionate Care</h3>
+                    <p>We treat every patient like family. Our caregivers provide emotional support along with medical care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="page-about" class="page">
+    <section class="about-page">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800" alt="Delhi Home Healthcare">
+                    <div class="founder-box">
+                        <img src="https://i.ibb.co/LhH57r7k/Whats-App-Image-2026-02-27-at-5-53-53-PM.jpg" alt="Ajay Kumar Sahu - Founder" class="founder-img" onclick="openFounderModal()">
+                        <div class="founder-info">
+                            <h3>Ajay Kumar Sahu</h3>
+                            <span class="title">Founder & CEO</span>
+                            <p>With over 4+ years of experience in healthcare, Ajay Kumar Sahu founded Delhi Home Healthcare Services to make quality healthcare accessible at home.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Delhi Home Healthcare Services was founded in 2022 with a mission to bring quality healthcare to patients' homes. We understood that healing happens best in familiar surroundings.</p>
+                    <p>We have grown to offer nursing care, ICU care, physiotherapy, elderly care, and specialized medical services across Delhi NCR.</p>
+                    <div class="stats-grid">
+                        <div class="stat-box"><h3>4+</h3><p>Years Experience</p></div>
+                        <div class="stat-box"><h3>1000+</h3><p>Patients Served</p></div>
+                        <div class="stat-box"><h3>50+</h3><p>Healthcare Staff</p></div>
+                        <div class="stat-box"><h3>24/7</h3><p>Support Available</p></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mission-vision">
+                <div class="mission-box">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                    <p>To provide accessible, affordable, and high-quality home healthcare services that improve quality of life for patients and their families across Delhi NCR.</p>
+                </div>
+                <div class="vision-box">
+                    <i class="fas fa-eye"></i>
+                    <h3>Our Vision</h3>
+                    <p>To be the most trusted home healthcare provider in Delhi NCR, setting standards for compassionate care and clinical excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="page-contact" class="page">
+    <section class="contact-page">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for any queries or to book our services</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <h3>Book a Service</h3>
+                    <form id="contactForm" onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" name="name" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label>Your Email *</label>
+                            <div class="email-input-group">
+                                <input type="text" name="emailUser" required placeholder="username" pattern="[a-zA-Z0-9._%+-]+" title="Enter email username">
+                                <span class="email-at">@</span>
+                                <select name="emailDomain" required>
+                                    <option value="">Select</option>
+                                    <option value="gmail.com">gmail.com</option>
+                                    <option value="yahoo.com">yahoo.com</option>
+                                    <option value="outlook.com">outlook.com</option>
+                                    <option value="hotmail.com">hotmail.com</option>
+                                    <option value="rediffmail.com">rediffmail.com</option>
+                                    <option value="icloud.com">icloud.com</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <input type="text" name="emailOther" id="emailOther" placeholder="Enter full email (e.g. user@company.com)" style="display: none; margin-top: 10px;">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input type="tel" name="phone" required placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label>Select Service *</label>
+                            <select name="service" required>
+                                <option value="">Choose a service</option>
+                                <option value="Nursing Care">Nursing Care</option>
+                                <option value="ICU Care">ICU Care</option>
+                                <option value="Patient Care">Patient Care</option>
+                                <option value="Japa Maid">Japa Maid</option>
+                                <option value="Physiotherapy">Physiotherapy</option>
+                                <option value="Injection Service">Injection Service</option>
+                                <option value="Elderly Care">Elderly Care</option>
+                                <option value="Post-Surgical Care">Post-Surgical Care</option>
+                                <option value="Tracheostomy Care">Tracheostomy Care</option>
+                                <option value="Attendant Services">Attendant Services</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Location</label>
+                            <input type="text" name="location" placeholder="Enter your location">
+                        </div>
+                        <div class="form-group">
+                            <label>Additional Details</label>
+                            <textarea name="message" placeholder="Tell us more about your requirements" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn btn-primary"><i class="fas fa-paper-plane"></i> Submit Request</button>
+                    </form>
+                    
+                    <!-- Success Message -->
+                    <div class="success-message" id="successMessage">
+                        <div class="success-icon"><i class="fas fa-check"></i></div>
+                        <h3>Request Submitted Successfully!</h3>
+                        <p>Thank you for contacting us. We will get back to you within 24 hours.</p>
+                        <button class="btn-primary" onclick="resetForm()"><i class="fas fa-plus"></i> Submit Another Request</button>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-item-text">
+                            <small>Call Us</small>
+                            <a href="tel:8802847949">8802847949</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon" style="color: #22c55e;"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contact-item-text">
+                            <small>WhatsApp</small>
+                            <a href="https://wa.me/918802847949" target="_blank">+91 8802847949</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-item-text">
+                            <small>Email</small>
+                            <a href="mailto:manishajay487@gmail.com">manishajay487@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-item-text">
+                            <small>Location</small>
+                            <p>Delhi NCR, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-item-text">
+                            <small>Working Hours</small>
+                            <p>24/7 Available</p>
+                        </div>
+                    </div>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d224345.83923192776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x52c2b7494e204dce!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1635789012345!5m2!1sen!2sin" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer id="mainFooter">
+    <div class="footer-container">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3>Delhi Home Healthcare</h3>
+                <p>Professional home healthcare services in Delhi NCR. Quality care at your doorstep.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/share/1Aj4JsvT4g/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/delhihomehealthcare" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@delhihomehealthcare" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/company/delhihomehealthcare" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a onclick="showPage('home')"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a onclick="showPage('about')"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a onclick="showPage('contact')"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a onclick="openServiceWindow('nursing-care')"><i class="fas fa-chevron-right"></i> Nursing Care</a></li>
+                    <li><a onclick="openServiceWindow('icu-care')"><i class="fas fa-chevron-right"></i> ICU Care</a></li>
+                    <li><a onclick="openServiceWindow('physiotherapy')"><i class="fas fa-chevron-right"></i> Physiotherapy</a></li>
+                    <li><a onclick="openServiceWindow('elderly-care')"><i class="fas fa-chevron-right"></i> Elderly Care</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <div class="footer-contact-item"><i class="fas fa-phone-alt"></i> <a href="tel:8802847949">8802847949</a></div>
+                <div class="footer-contact-item"><i class="fas fa-envelope"></i> <a href="mailto:manishajay487@gmail.com">manishajay487@gmail.com</a></div>
+                <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i> <span>Delhi NCR, India</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Delhi Home Healthcare Services. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+    <a href="tel:8802847949" class="call-float"><i class="fas fa-phone-alt"></i></a>
+    <a href="https://wa.me/918802847949?text=Hi%2C%20I%20need%20home%20healthcare%20services" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<!-- Founder Modal -->
+<div class="modal-overlay" id="founderModal" onclick="closeFounderModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <img src="https://i.ibb.co/LhH57r7k/Whats-App-Image-2026-02-27-at-5-53-53-PM.jpg" alt="Ajay Kumar Sahu" class="modal-img">
+        <h3 class="modal-title">Ajay Kumar Sahu</h3>
+        <p class="modal-subtitle">Founder & CEO</p>
+        <p class="modal-desc">With over 4+ years of experience in healthcare, Ajay Kumar Sahu founded Delhi Home Healthcare Services in 2022 to make quality healthcare accessible at home for everyone in Delhi NCR.</p>
+        <button class="modal-close" onclick="closeFounderModal(event)">Close</button>
+    </div>
+</div>
+
+<!-- Service Detail Page -->
+<div id="page-service" class="page">
+    <section class="service-detail-page">
+        <div class="container">
+            <div class="service-detail-header">
+                <div class="back-btn" onclick="showPage('home')"><i class="fas fa-arrow-left"></i> Back to Home</div>
+                <img id="serviceImg" src="" alt="">
+            </div>
+            <div class="service-detail-title">
+                <h1 id="serviceTitle"></h1>
+                <p id="serviceSubtitle"></p>
+            </div>
+            <div class="service-detail-content">
+                <div class="service-article" id="serviceArticle"></div>
+                
+                <div class="service-detail-section">
+                    <h2><i class="fas fa-list-check"></i> Services Included</h2>
+                    <div class="service-features-grid" id="serviceFeatures"></div>
+                </div>
+                
+                <div class="service-detail-section">
+                    <h2><i class="fas fa-star"></i> Key Benefits</h2>
+                    <div class="service-benefits-grid" id="serviceBenefits"></div>
+                </div>
+                
+                <div class="service-detail-cta">
+                    <a href="tel:8802847949" class="btn-primary"><i class="fas fa-phone-alt"></i> Call: 8802847949</a>
+                    <a href="#" id="serviceWhatsapp" class="btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Enquiry</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+// Services Data with Detailed Articles
+const servicesData = {
+    'nursing-care': {
+        title: 'Nursing Care Services at Home',
+        subtitle: 'Professional Medical Care in the Comfort of Your Home',
+        image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800',
+        icon: 'fas fa-user-nurse',
+        color: '#0ea5e9',
+        article: '<p>Our Nursing Care Services bring hospital-quality medical care directly to your home in Delhi NCR. We understand that recovering at home is more comfortable and often leads to better health outcomes for patients of all ages.</p><p>Our team of certified and experienced nurses provides comprehensive medical care including wound dressing, medication administration, injection services, vital signs monitoring, and post-operative care. Each nurse undergoes rigorous training and background verification to ensure your family\'s safety.</p><p>Whether you need short-term care after surgery or long-term nursing support for chronic conditions, our nursing professionals create personalized care plans tailored to each patient\'s unique needs. We work closely with treating physicians to ensure continuity of care and proper medication management.</p>',
+        features: ['Wound Dressing & Care', 'Medication Management', 'Vital Signs Monitoring', 'Post-Operative Care', 'IV Fluid Administration', 'Catheter Care', 'Injection Administration', 'Chronic Disease Care', 'Bed Sore Prevention', 'Health Education'],
+        benefits: ['Certified Nurses', 'Personalized Care', 'Affordable Pricing', 'Flexible Scheduling', 'Regular Health Updates', '24/7 Availability']
+    },
+    'icu-care': {
+        title: 'ICU Care at Home',
+        subtitle: 'Advanced Critical Care Without Hospital Stay',
+        image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+        icon: 'fas fa-heartbeat',
+        color: '#ef4444',
+        article: '<p>Our ICU Care at Home service brings advanced critical care capabilities to your residence, allowing critically ill patients to receive hospital-level treatment while surrounded by family. This service is ideal for patients who are stable but require continuous monitoring and specialized equipment.</p><p>We provide complete ICU setup including ventilators, cardiac monitors, oxygen concentrators, and suction machines. Our critical care nurses are trained in handling emergency situations and providing round-the-clock monitoring for patients with severe health conditions.</p><p>ICU at Home significantly reduces the risk of hospital-acquired infections while cutting healthcare costs by up to 50% compared to hospital ICU stays. Families can stay close to their loved ones during recovery, providing emotional support that accelerates healing.</p>',
+        features: ['Ventilator Support', 'Cardiac Monitoring', 'Oxygen Therapy', 'Tracheostomy Care', 'Suctioning Procedures', 'Critical Care Nursing', 'Emergency Protocols', 'Equipment Setup', '24/7 Monitoring', 'Doctor Coordination'],
+        benefits: ['Hospital-Level Care', 'Reduced Infection Risk', 'Family Stays Close', '50% Cost Savings', 'Personalized Attention', 'Faster Recovery']
+    },
+    'patient-care': {
+        title: 'Patient Care Services',
+        subtitle: 'Compassionate Care for Bedridden & Recovering Patients',
+        image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800',
+        icon: 'fas fa-user-injured',
+        color: '#22c55e',
+        article: '<p>Our Patient Care Services provide essential support for individuals who are bedridden, recovering from illness, or need assistance with daily activities. Our trained patient attendants offer compassionate care that preserves dignity while ensuring comfort and safety.</p><p>We understand the challenges families face when caring for loved ones who need constant attention. Our caregivers assist with personal hygiene, bathing, feeding, mobility support, and position changes to prevent bedsores. They also provide companionship, which is crucial for mental well-being.</p><p>Available for both 12-hour and 24-hour shifts, our patient care attendants are background-verified and trained in basic medical care. They work under the guidance of our nursing team to ensure proper care protocols are followed.</p>',
+        features: ['Bedridden Patient Care', 'Personal Hygiene Assistance', 'Bathing & Grooming', 'Feeding Assistance', 'Mobility Support', 'Position Changing', 'Companionship', 'Medication Reminders', 'Light Housekeeping', 'Emergency Alert'],
+        benefits: ['Trained Attendants', 'Flexible Shifts (12/24 hr)', 'Background Verified', 'Compassionate Care', 'Regular Family Updates', 'Affordable Rates']
+    },
+    'japa-maid': {
+        title: 'Japa Maid Services',
+        subtitle: 'Traditional Post-Natal Care for Mother & Newborn',
+        image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=800',
+        icon: 'fas fa-baby',
+        color: '#ec4899',
+        article: '<p>Our Japa Maid Services provide specialized post-natal care following the traditional Indian practice of "Japa" - a period of rest and recovery for new mothers. Our experienced Japa maids combine traditional wisdom with modern care techniques.</p><p>For 40 days after delivery, our Japa maids provide comprehensive support including newborn baby care, mother care, baby massage, traditional dietary preparation, and night-time baby care. This allows the new mother to rest and recover properly while ensuring the baby receives optimal care.</p><p>Our Japa maids are experienced in handling common newborn issues like colic, sleep patterns, and feeding challenges. They prepare nutritious traditional meals that help in post-delivery recovery and lactation support.</p>',
+        features: ['Newborn Baby Care', 'Mother Care After Delivery', 'Baby Massage & Bathing', 'Traditional Postnatal Diet', 'Night Care for Baby', 'Feeding Assistance', 'Light Household Work', 'Lactation Support', 'Baby Sleep Training', 'Postpartum Recovery'],
+        benefits: ['Experienced Japa Maids', 'Traditional + Modern Care', 'Flexible Duration', 'Nutritious Meals', 'Mother Gets Rest', 'Faster Recovery']
+    },
+    'physiotherapy': {
+        title: 'Physiotherapy at Home',
+        subtitle: 'Expert Rehabilitation & Pain Management',
+        image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800',
+        icon: 'fas fa-walking',
+        color: '#8b5cf6',
+        article: '<p>Our Home Physiotherapy Services bring licensed physiotherapists to your doorstep for comprehensive rehabilitation and pain management. Skip the hassle of traveling to clinics when mobility is already a challenge - let our experts come to you.</p><p>We treat a wide range of conditions including stroke rehabilitation, post-surgery recovery, sports injuries, chronic back pain, arthritis, and neurological disorders. Each treatment plan is customized based on thorough assessment and ongoing progress evaluation.</p><p>Our physiotherapists use modern techniques and portable equipment to provide effective treatment at home. Regular sessions help improve mobility, reduce pain, prevent further injury, and restore independence in daily activities.</p>',
+        features: ['Stroke Rehabilitation', 'Post-Surgery Recovery', 'Chronic Pain Management', 'Sports Injury Treatment', 'Joint Mobility Exercises', 'Balance & Coordination', 'Muscle Strengthening', 'Posture Correction', 'Neurological Rehab', 'Elderly Mobility'],
+        benefits: ['Licensed Physiotherapists', 'Personalized Treatment', 'No Travel Required', 'One-on-One Attention', 'Progress Tracking', 'Modern Equipment']
+    },
+    'injection-service': {
+        title: 'Injection Service at Home',
+        subtitle: 'Safe & Professional Injection Administration',
+        image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800',
+        icon: 'fas fa-syringe',
+        color: '#f59e0b',
+        article: '<p>Our Injection Service at Home provides safe, professional injection administration without the need to visit a hospital or clinic. Our trained nurses ensure proper technique, hygiene, and safety protocols for all types of injections.</p><p>We administer IV injections, intramuscular injections, insulin injections, vaccinations, B12 shots, and antibiotic injections. Each procedure is performed using sterile equipment with proper disposal of medical waste. Our nurses also monitor patients for any adverse reactions.</p><p>This service is ideal for patients who need regular injections but find it difficult to travel to healthcare facilities. It saves time, reduces exposure to hospital infections, and provides comfort of receiving care at home.</p>',
+        features: ['IV Injections', 'Intramuscular Injections', 'Insulin Administration', 'Vaccination Services', 'B12 Injections', 'Pain Management Injections', 'Antibiotic Courses', 'Blood Sampling', 'Post-Injection Care', 'Medical Waste Disposal'],
+        benefits: ['Trained Professionals', 'Sterile Equipment', 'Safe Disposal', 'Time Saving', 'No Hospital Visits', 'Affordable Pricing']
+    },
+    'elderly-care': {
+        title: 'Elderly Care Services',
+        subtitle: 'Compassionate Support for Senior Citizens',
+        image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800',
+        icon: 'fas fa-brain',
+        color: '#14b8a6',
+        article: '<p>Our Elderly Care Services are designed to help senior citizens maintain their independence and quality of life while receiving the support they need. We understand that aging brings unique challenges, and our caregivers provide respectful, dignified assistance.</p><p>Our caregivers help with daily activities including personal care, medication management, meal preparation, light exercise, and companionship. For seniors with dementia or Alzheimer\'s, we provide specialized care that ensures safety while maintaining dignity.</p><p>Regular companionship from our caregivers helps combat loneliness and depression common among elderly individuals living alone. We also provide fall prevention measures and safety monitoring to give families peace of mind.</p>',
+        features: ['Personal Care Assistance', 'Medication Management', 'Dementia/Alzheimer\'s Care', 'Companionship', 'Meal Preparation', 'Light Exercise Support', 'Transportation Help', 'Fall Prevention', 'Safety Monitoring', 'Cognitive Activities'],
+        benefits: ['Maintains Independence', 'Family Peace of Mind', 'Reduces Loneliness', 'Safety Supervision', 'Flexible Schedules', 'Compassionate Care']
+    },
+    'post-surgical-care': {
+        title: 'Post-Surgical Care Services',
+        subtitle: 'Expert Care for Faster Recovery After Surgery',
+        image: 'https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=800',
+        icon: 'fas fa-procedures',
+        color: '#6366f1',
+        article: '<p>Our Post-Surgical Care Services provide specialized nursing and support for patients recovering from surgery at home. Proper post-operative care is crucial for preventing complications and ensuring faster healing.</p><p>Our surgical care nurses are trained in wound care, drain management, pain management, and monitoring for signs of infection. They coordinate with your surgeon to follow discharge instructions and adjust care as your recovery progresses.</p><p>Recovering at home instead of extended hospital stay reduces the risk of hospital-acquired infections, allows family involvement in care, and significantly reduces healthcare costs. Our team ensures you receive hospital-level care in the comfort of your home.</p>',
+        features: ['Surgical Wound Care', 'Drain Management', 'Pain Management', 'Medication Schedule', 'Physical Therapy', 'Nutrition Guidance', 'Incision Monitoring', 'Infection Prevention', 'Doctor Coordination', 'Recovery Tracking'],
+        benefits: ['Faster Recovery', 'Reduced Hospital Stay', 'Lower Infection Risk', 'Family Involvement', 'Cost-Effective', 'One-on-One Attention']
+    },
+    'tracheostomy-care': {
+        title: 'Tracheostomy Care Services',
+        subtitle: 'Specialized Respiratory Care at Home',
+        image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800',
+        icon: 'fas fa-lungs',
+        color: '#f43f5e',
+        article: '<p>Our Tracheostomy Care Services provide specialized nursing care for patients with tracheostomy tubes. Proper tracheostomy care requires trained professionals who understand the complexities of airway management and infection prevention.</p><p>Our nurses are experienced in tracheostomy tube cleaning, suctioning procedures, stoma care, tube changes, and humidification. They monitor for complications like infection, tube displacement, or blockage that can be life-threatening if not addressed promptly.</p><p>We also train family members in basic tracheostomy care and emergency procedures, empowering them to participate in care while having professional backup available. This comprehensive approach improves quality of life for both patients and caregivers.</p>',
+        features: ['Tube Cleaning & Care', 'Suctioning Procedures', 'Stoma Care', 'Tube Changes', 'Humidification', 'Inner Cannula Care', 'Infection Prevention', 'Emergency Response', 'Family Training', 'Equipment Supply'],
+        benefits: ['Specialized Nurses', 'Reduced Hospital Visits', 'Home Comfort', 'Family Education', 'Emergency Support', 'Quality of Life']
+    },
+    'attendant-services': {
+        title: 'Attendant Services',
+        subtitle: '24/7 Patient Assistance & Personal Care Support',
+        image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800',
+        icon: 'fas fa-hands-helping',
+        color: '#06b6d4',
+        article: '<p>Our Attendant Services provide reliable, compassionate care for patients who need continuous assistance with daily activities. Our trained attendants work under nursing supervision to ensure quality care while offering companionship and emotional support.</p><p>Services include assistance with personal hygiene, feeding, mobility, position changes for bedridden patients, and medication reminders. Our attendants also help with light housekeeping to maintain a clean, comfortable environment for recovery.</p><p>Available for both 12-hour day shifts and 24-hour live-in care, our attendants give family members respite from caregiving duties while ensuring their loved ones receive attentive, dignified care. Regular updates to families provide peace of mind.</p>',
+        features: ['24/7 Patient Assistance', 'Personal Hygiene Care', 'Feeding Assistance', 'Mobility Support', 'Position Changing', 'Companionship', 'Medication Reminders', 'Light Housekeeping', 'Vital Monitoring', 'Emergency Alert'],
+        benefits: ['Trained Attendants', 'Flexible Shifts', 'Background Verified', 'Compassionate Care', 'Family Updates', 'Affordable Rates']
+    }
+};
+
+function openServiceWindow(serviceId) {
+    const s = servicesData[serviceId];
+    if (!s) return;
+    
+    // Close dropdown menu and mobile menu
+    document.getElementById('navLinks').classList.remove('active');
+    document.getElementById('menuToggle').classList.remove('active');
+    document.getElementById('servicesDropdown').classList.remove('active');
+    
+    // Force hide dropdown menu
+    const dropdownMenu = document.querySelector('#servicesDropdown .dropdown-menu');
+    if (dropdownMenu) {
+        dropdownMenu.style.opacity = '0';
+        dropdownMenu.style.visibility = 'hidden';
+        setTimeout(() => {
+            dropdownMenu.style.opacity = '';
+            dropdownMenu.style.visibility = '';
+        }, 500);
+    }
+    
+    // Update page content
+    document.getElementById('serviceImg').src = s.image;
+    document.getElementById('serviceTitle').textContent = s.title;
+    document.getElementById('serviceSubtitle').textContent = s.subtitle;
+    document.getElementById('serviceArticle').innerHTML = s.article;
+    
+    // Update features
+    const featuresHtml = s.features.map(f => 
+        '<div class="service-feature-item"><i class="fas fa-check-circle"></i><span>' + f + '</span></div>'
+    ).join('');
+    document.getElementById('serviceFeatures').innerHTML = featuresHtml;
+    
+    // Update benefits
+    const benefitsHtml = s.benefits.map(b => 
+        '<div class="service-benefit-item"><i class="fas fa-check"></i> ' + b + '</div>'
+    ).join('');
+    document.getElementById('serviceBenefits').innerHTML = benefitsHtml;
+    
+    // Update WhatsApp link
+    document.getElementById('serviceWhatsapp').href = 'https://wa.me/918802847949?text=Hi%2C%20I%20need%20' + encodeURIComponent(s.title);
+    
+    // Show service page
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-service').classList.add('active');
+    
+    // Hide footer on service page
+    document.getElementById('mainFooter').style.display = 'none';
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showPage(page) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    // Show selected page
+    document.getElementById('page-' + page).classList.add('active');
+    
+    // Show footer for home, about, contact pages
+    document.getElementById('mainFooter').style.display = 'block';
+    
+    // Update nav links
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    document.getElementById('nav-' + page).classList.add('active');
+    
+    // Close mobile menu if open
+    document.getElementById('navLinks').classList.remove('active');
+    document.getElementById('menuToggle').classList.remove('active');
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('active');
+    document.getElementById('menuToggle').classList.toggle('active');
+}
+
+function toggleDropdown(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    // For mobile: toggle dropdown
+    if (window.innerWidth <= 768) {
+        document.getElementById('servicesDropdown').classList.toggle('active');
+    }
+}
+
+function openFounderModal() {
+    document.getElementById('founderModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeFounderModal(e) {
+    if (e) e.stopPropagation();
+    document.getElementById('founderModal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function submitForm(e) {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const phone = form.phone.value;
+    const service = form.service.value;
+    const location = form.location.value;
+    const message = form.message.value;
+    
+    // Get email
+    const emailDomain = form.emailDomain.value;
+    let email = '';
+    if (emailDomain === 'other') {
+        email = form.emailOther.value;
+    } else {
+        email = form.emailUser.value + '@' + emailDomain;
+    }
+    
+    // Show loading state
+    const submitBtn = form.querySelector('.submit-btn');
+    const originalBtnText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.disabled = true;
+    
+    // Initialize EmailJS (replace with your actual public key)
+    // Get your public key from: https://www.emailjs.com/sdk/
+    emailjs.init("YOUR_PUBLIC_KEY");
+    
+    // Send email using EmailJS
+    const templateParams = {
+        to_email: 'manishajay487@gmail.com',
+        from_name: name,
+        from_email: email,
+        phone: phone,
+        service: service,
+        location: location,
+        message: message
+    };
+    
+    // Send email (replace with your actual Service ID and Template ID)
+    // Create template at: https://www.emailjs.com/
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        .then(function(response) {
+            console.log('Email sent successfully!', response.status, response.text);
+            
+            // Also send to WhatsApp for instant notification
+            const waText = `*New Service Inquiry from Website*%0D%0A%0D%0A*Service:* ${service}%0D%0A*Name:* ${name}%0D%0A*Email:* ${email}%0D%0A*Phone:* ${phone}%0D%0A*Location:* ${location}%0D%0A%0D%0A*Details:* ${message}`;
+            const waLink = 'https://wa.me/918802847949?text=' + encodeURIComponent(waText);
+            window.open(waLink, '_blank');
+            
+            // Hide form and show success message
+            form.style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+            
+            // Reset button
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+        })
+        .catch(function(error) {
+            console.log('Email failed...', error);
+            
+            // Fallback: Open WhatsApp with message
+            const waText = `*New Service Inquiry from Website*%0D%0A%0D%0A*Service:* ${service}%0D%0A*Name:* ${name}%0D%0A*Email:* ${email}%0D%0A*Phone:* ${phone}%0D%0A*Location:* ${location}%0D%0A%0D%0A*Details:* ${message}`;
+            const waLink = 'https://wa.me/918802847949?text=' + encodeURIComponent(waText);
+            window.open(waLink, '_blank');
+            
+            // Still show success (WhatsApp will deliver the message)
+            form.style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+            
+            // Reset button
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+        });
+}
+
+function resetForm() {
+    const form = document.getElementById('contactForm');
+    form.reset();
+    form.style.display = 'block';
+    document.getElementById('successMessage').classList.remove('show');
+    document.getElementById('emailOther').style.display = 'none';
+}
+
+// Handle email domain selection
+document.addEventListener('DOMContentLoaded', function() {
+    const emailDomain = document.querySelector('select[name="emailDomain"]');
+    const emailOther = document.getElementById('emailOther');
+    const emailUser = document.querySelector('input[name="emailUser"]');
+    
+    if (emailDomain) {
+        emailDomain.addEventListener('change', function() {
+            if (this.value === 'other') {
+                emailOther.style.display = 'block';
+                emailOther.required = true;
+                emailUser.required = false;
+            } else {
+                emailOther.style.display = 'none';
+                emailOther.required = false;
+                emailUser.required = true;
+            }
+        });
+    }
+});
+
+// Header scroll effect
+window.addEventListener('scroll', function() {
+    const header = document.getElementById('header');
+    if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    const nav = document.getElementById('navLinks');
+    const toggle = document.getElementById('menuToggle');
+    if (!nav.contains(event.target) && !toggle.contains(event.target)) {
+        nav.classList.remove('active');
+        toggle.classList.remove('active');
+    }
+});
+</script>
+
+</body>
+</html>
